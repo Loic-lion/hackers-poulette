@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackers POulette</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Hackers Poulette</title>
 </head>
 
 <body>
@@ -31,6 +32,7 @@
     {
         $allowed_types = array('jpg', 'png', 'gif');
         $max_size = 2 * 1024 * 1024;
+        $file_error = "";
 
         if ($file['error'] === UPLOAD_ERR_OK) {
             $file_name = $file['name'];
@@ -38,36 +40,67 @@
             $file_size = $file['size'];
 
             if (!in_array($file_type, $allowed_types)) {
-                $file_error = "Error: only giff, jpg and png.";
+                $file_error = "Error: only gif, jpg and png.";
             } elseif ($file_size > $max_size) {
                 $file_error = "Error: max 2MB.";
-            } else {
             }
         }
 
         return $file_error;
     }
 
+    /////////////////////////////////////////////////////////////
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+        $name = sanitize_input($_POST["name"]);
+        $firstname = sanitize_input($_POST["firstname"]);
+        $email = sanitize_input($_POST["email"]);
+        $description = sanitize_input($_POST["description"]);
+        $name_valid = strlen($name) >= 2 && strlen($name) <= 255;
+        $firstname_valid = strlen($firstname) >= 2 && strlen($firstname) <= 255;
+        $email_valid = validate_email($email);
+        $description_valid = strlen($description) >= 2 && strlen($description) <= 1000;
+
+        if (isset($_FILES["file"]) && $_FILES["file"]["size"] > 0) {
+            $file_error = validate_file($_FILES["file"]);
+        }
+
+        if ($name_valid && $firstname_valid && $email_valid && $description_valid && empty($file_error)) {
+
+            $host = "localhost";
+            $dbname = "hackers-poulette";
+            $username = "root";
+            $password = "";
+
+            try {
+                $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            } catch (PDOException $e) {
+                echo "Erreur de connexion à la base de données : " . $e->getMessage();
+                exit();
+            }
+        }
+
+        echo $response;
+    }
     ?>
 
     <h2>Contact Support</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
 
-        <label for="name">Name:</label>
-        <input type="text" name="name" required><br>
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="text" name="firstname" placeholder="First Name" required><br>
 
-        <label for="firstname">First Name:</label>
-        <input type="text" name="firstname" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
 
-        <label for="email">Email Address:</label>
-        <input type="email" name="email" required><br>
-
-        <label for="file">File:</label>
+        <label for="file">Image:</label>
         <input type="file" name="file"><br>
 
-        <label for="description">Description:</label>
-        <textarea name="description" rows="5" cols="40" required></textarea><br>
+        <textarea name="description" rows="5" cols="40" placeholder="Description" required></textarea><br>
+
+        <div class="g-recaptcha" data-sitekey="6Lcurq8mAAAAAPtjE1hMOJjuQeFEGjP3gM8n7SWZ"></div>
 
         <input type="submit" name="submit" value="Submit">
 
