@@ -1,0 +1,248 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  color: white;
+  font-family: "Rajdhani", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom, #a9cdbb, #aecebe, #b4cec0, #b9cfc3, #becfc6);
+}
+body .response__ok {
+  text-align: center;
+  font-size: 18px;
+  background-image: linear-gradient(to right bottom, #52ac3b, #6ea560, #7ca87c, #80a57d, #8ca78a);
+  width: auto;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.363);
+  box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.363);
+}
+body .response__fail {
+  text-align: center;
+  font-size: 18px;
+  background-image: linear-gradient(to right bottom, #bb3434, #a84747, #aa5f5f, #a57d7d, #a78a8a);
+  width: auto;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.363);
+  box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.363);
+}
+body .container {
+  display: flex;
+  width: 800px;
+  border: 2px solid rgba(255, 255, 255, 0.363);
+  border-radius: 5px;
+  box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.363);
+}
+body .container__info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px 0px 0px 5px;
+  width: 400px;
+  background-image: linear-gradient(to right bottom, #62a884, #6ea789, #7ca892, #7da591, #8aa798);
+}
+body .container__info h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: 300px;
+}
+body .container__info p {
+  width: 300px;
+  font-size: 20px;
+}
+body .container__support {
+  box-shadow: inset 18px -4px 20px -10px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to right bottom, #296b66, #1c8879, #14a687, #26c58f, #48e392);
+  width: 400px;
+  height: 500px;
+  border-radius: 0px 5px 5px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body .container__support h2 {
+  margin: 20px 0px 20px 0px;
+  font-size: 40px;
+  font-weight: bold;
+}
+body .container__support form {
+  width: 350px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .container__support form input {
+  margin-bottom: 20px;
+  width: 317px;
+  border: none;
+  border-radius: 3px;
+  padding: 2px;
+}
+body .container__support form textarea {
+  margin-bottom: 20px;
+  width: 317px;
+  border: none;
+  border-radius: 3px;
+  padding: 2px;
+}
+body .container__support form .g-recaptcha {
+  margin-bottom: 20px;
+}
+body .container__support form .btn__submit {
+  width: 100px;
+  border-radius: 10px;
+  background-color: rgba(105, 189, 178, 0.4941176471);
+  border: 2px solid white;
+  padding: 3px 0px 3px 0px;
+  color: white;
+  cursor: pointer;
+}
+body .container__support form .btn__submit:hover {
+  background-color: #296b66;
+}/*# sourceMappingURL=style.css.map */
