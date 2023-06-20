@@ -229,11 +229,19 @@ body .container__support form input {
   padding: 2px;
 }
 body .container__support form textarea {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 317px;
   border: none;
   border-radius: 3px;
   padding: 2px;
+}
+body .container__support form .error {
+  width: 321px;
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+  height: 40px;
+  margin-bottom: 10px;
 }
 body .container__support form .g-recaptcha {
   margin-bottom: 20px;

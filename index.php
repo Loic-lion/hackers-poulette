@@ -92,15 +92,16 @@
         </div>
         <div class="container__support">
             <h2>Contact support</h2>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
 
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="text" name="firstname" placeholder="First Name" required>
-                <input type="email" name="email" placeholder="Email" required>
+
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="firstname" placeholder="First Name">
+                <input type="email" name="email" placeholder="Email">
                 <input type="file" name="file">
 
-                <textarea name="description" rows="5" cols="40" placeholder="Description" required></textarea>
-
+                <textarea name="description" rows="5" cols="40" placeholder="Description"></textarea>
+                <span id="error" class="error"></span>
                 <div class="g-recaptcha" data-sitekey="6Lcurq8mAAAAAPtjE1hMOJjuQeFEGjP3gM8n7SWZ"></div>
 
                 <input class="btn__submit" type="submit" name="submit" value="Submit">
