@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="./assets/scss/css/style.css" />
+    <script type="module" defer src="./assets/js/validate.js"></script>
     <title>Hackers Poulette</title>
 </head>
 
@@ -28,16 +29,15 @@
         $email_valid = validate_email($email);
         $description_valid = strlen($description) >= 2 && strlen($description) <= 1000;
 
-        if (isset($_FILES["file"]) && $_FILES["file"]["size"] > 0) {
-            $file_error = validate_file($_FILES["file"]);
-        }
+        $file_error = validate_file($_FILES["file"]);
+
         ///////////////////////reCaptcha//////////////////////
         include 'assets/php/verify.php';
         //////////////////////////////////////////////////////
-        if ($captcha_valid && $name_valid && $firstname_valid && $email_valid && $description_valid && empty($file_error)) {
+        if ($captcha_valid && $name_valid && $firstname_valid && $email_valid && $description_valid) {
 
             $host = "localhost";
-            $dbname = "hackers-poulette";
+            $dbname = "id20939391_hackerp";
             $username = "root";
             $password = "";
 
@@ -59,7 +59,12 @@
             $stmt->bindParam(':firstname', $firstname);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':description', $description);
-            $file_content = file_get_contents($_FILES['file']['tmp_name']);
+
+            if ($_FILES["file"]["size"] > 0) {
+                $file_content = file_get_contents($_FILES['file']['tmp_name']);
+            } else {
+                $file_content = null;
+            }
             $stmt->bindParam(':file', $file_content, PDO::PARAM_LOB);
 
             if ($stmt->execute()) {
@@ -83,6 +88,7 @@
         <div class="container__info">
             <h1>Welcome to our contact and support page!</h1>
             <p>To contact us, you can use the form below by filling in the necessary fields. We encourage you to provide as much detail as possible so that we can better understand your request and provide you with appropriate assistance.</p>
+            <span class="container__info__mail">✉</span>
         </div>
         <div class="container__support">
             <h2>Contact support</h2>
