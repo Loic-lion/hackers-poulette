@@ -41,6 +41,11 @@
             $username = "id20939391_loic";
             $password = "msi871J5?";
 
+            // $host = "localhost";
+            // $dbname = "hackers-poulette";
+            // $username = "root";
+            // $password = "";
+
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
@@ -71,7 +76,16 @@
                 $response .= "Insertion to the db ok.<br>";
             } else {
                 $response .= "Error (insertion db).<br>";
-            }
+            };
+
+            ////////////////////////////////////////////////////////////////
+
+            include 'assets/php/mail.php';
+
+            ///////////////////////////////////////////////////////////
+
+
+
 
             $response = "<div class='response__ok animate'>Thank you for contacting us</div>";
 
