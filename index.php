@@ -1,3 +1,8 @@
+<!-- Pour utiliser le script, il faut completer les informations de la base de donnée en ligne 44, 
+ainsi que de remplacer KEY_reCAPTCHA par une clé valide à la ligne 118. De plus il faut remplacer 
+KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,15 +41,10 @@
         //////////////////////////////////////////////////////
         if ($captcha_valid && $name_valid && $firstname_valid && $email_valid && $description_valid) {
 
-            $host = "localhost";
-            $dbname = "id20939391_hackerp";
-            $username = "id20939391_loic";
-            $password = "msi871J5?";
-
-            // $host = "localhost";
-            // $dbname = "hackers-poulette";
-            // $username = "root";
-            // $password = "";
+            $host = "";
+            $dbname = "";
+            $username = "";
+            $password = "";
 
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -108,7 +108,6 @@
             <h2>Contact support</h2>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
 
-
                 <input type="text" name="name" placeholder="Name (max 255 characters)">
                 <input type="text" name="firstname" placeholder="First Name (max 255 characters)">
                 <input name="email" placeholder="Email (max 255 characters)">
@@ -116,7 +115,7 @@
 
                 <textarea name="description" rows="5" cols="40" placeholder="Description (max 1000 characters)"></textarea>
                 <span id="error" class="error"></span>
-                <div class="g-recaptcha" data-sitekey="6Lcurq8mAAAAAPtjE1hMOJjuQeFEGjP3gM8n7SWZ"></div>
+                <div class="g-recaptcha" data-sitekey="KEY_reCAPTCHA"></div>
 
                 <input class="btn__submit" type="submit" name="submit" value="Submit">
 
