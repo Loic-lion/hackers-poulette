@@ -38,8 +38,8 @@
 
             $host = "localhost";
             $dbname = "id20939391_hackerp";
-            $username = "root";
-            $password = "";
+            $username = "id20939391_loic";
+            $password = "msi871J5?";
 
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -73,11 +73,11 @@
                 $response .= "Error (insertion db).<br>";
             }
 
-            $response = "<div class='response__ok'>Thank you for contacting us</div>";
+            $response = "<div class='response__ok animate'>Thank you for contacting us</div>";
 
             $name = $firstname = $file = $email = $description = "";
         } else {
-            $response = "<div class='response__fail'>Please fill in all the required fields correctly.</div>";
+            $response = "<div class='response__fail animate'>Please fill in all the required fields correctly.</div>";
         }
 
         echo $response;
@@ -95,12 +95,12 @@
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
 
 
-                <input type="text" name="name" placeholder="Name">
-                <input type="text" name="firstname" placeholder="First Name">
-                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="name" placeholder="Name (max 255 characters)">
+                <input type="text" name="firstname" placeholder="First Name (max 255 characters)">
+                <input name="email" placeholder="Email (max 255 characters)">
                 <input type="file" name="file">
 
-                <textarea name="description" rows="5" cols="40" placeholder="Description"></textarea>
+                <textarea name="description" rows="5" cols="40" placeholder="Description (max 1000 characters)"></textarea>
                 <span id="error" class="error"></span>
                 <div class="g-recaptcha" data-sitekey="6Lcurq8mAAAAAPtjE1hMOJjuQeFEGjP3gM8n7SWZ"></div>
 
