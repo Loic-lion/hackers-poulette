@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&display=swap");
+
+body {
+  color: white;
+  font-family: "Rajdhani", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    #a9cdbb,
+    #aecebe,
+    #b4cec0,
+    #b9cfc3,
+    #becfc6
+  );
+  .response {
+    &__ok {
+      text-align: center;
+      font-size: 18px;
+      background-image: linear-gradient(
+        to right bottom,
+        #52ac3b,
+        #6ea560,
+        #7ca87c,
+        #80a57d,
+        #8ca78a
+      );
+      width: auto;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.363);
+      box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.363);
+    }
+    &__fail {
+      text-align: center;
+      font-size: 18px;
+      background-image: linear-gradient(
+        to right bottom,
+        #bb3434,
+        #a84747,
+        #aa5f5f,
+        #a57d7d,
+        #a78a8a
+      );
+      width: auto;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.363);
+      box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.363);
+    }
+  }
+  .container {
+    display: flex;
+    width: 800px;
+    border: 2px solid rgba(255, 255, 255, 0.363);
+    border-radius: 5px;
+    box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.363);
+    &__info {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      border-radius: 5px 0px 0px 5px;
+      width: 400px;
+      background-image: linear-gradient(
+        to right bottom,
+        #62a884,
+        #6ea789,
+        #7ca892,
+        #7da591,
+        #8aa798
+      );
+      h1 {
+        font-size: 40px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        width: 300px;
+      }
+      p {
+        width: 300px;
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+      &__mail {
+        font-size: 100px;
+      }
+    }
+    &__support {
+      box-shadow: inset 18px -4px 20px -10px rgba(0, 0, 0, 0.5);
+
+      background-image: linear-gradient(
+        to right bottom,
+        #296b66,
+        #1c8879,
+        #14a687,
+        #26c58f,
+        #48e392
+      );
+      width: 400px;
+      height: 500px;
+      border-radius: 0px 5px 5px 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        margin: 20px 0px 20px 0px;
+        font-size: 40px;
+
+        font-weight: bold;
+      }
+      form {
+        width: 350px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input {
+          margin-bottom: 10px;
+          width: 317px;
+          border: none;
+          border-radius: 3px;
+          padding: 2px;
+        }
+
+        textarea {
+          margin-bottom: 10px;
+          width: 317px;
+          border: none;
+          border-radius: 3px;
+          padding: 2px;
+        }
+
+        .error {
+          width: 321px;
+          font-size: 12px;
+          font-weight: bold;
+          color: red;
+          height: 40px;
+          margin-bottom: 10px;
+        }
+        .g-recaptcha {
+          margin-bottom: 20px;
+        }
+
+        .btn__submit {
+          width: 100px;
+          border-radius: 10px;
+          background-color: #69bdb27e;
+          border: 2px solid white;
+          padding: 3px 0px 3px 0px;
+          color: white;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #296b66;
+          }
+        }
+      }
+    }
+  }
+}
