@@ -1,6 +1,7 @@
-<!-- Pour utiliser le script, il faut completer les informations de la base de donnée en ligne 44, 
-ainsi que de remplacer KEY_reCAPTCHA par une clé valide à la ligne 118. De plus il faut remplacer 
-KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 -->
+<!-- Pour utiliser le script, il faut completer les informations de la base de donnée en ligne 45, 
+ainsi que de remplacer KEY_reCAPTCHA par une clé valide à la ligne 119. De plus il faut remplacer 
+KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 ainsi que remplacer SMTP_KEY 
+par votre clé SPMT et USER_SPMT par votre id spmt dans le fichier mail.php-->
 
 
 <!DOCTYPE html>
@@ -87,11 +88,11 @@ KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 --
 
 
 
-            $response = "<div class='response__ok animate'>Thank you for contacting us</div>";
+            $response = "<div class='response__ok'>Thank you for contacting us</div>";
 
             $name = $firstname = $file = $email = $description = "";
         } else {
-            $response = "<div class='response__fail animate'>Please fill in all the required fields correctly.</div>";
+            $response = "<div class='response__fail'>Please fill in all the required fields correctly.</div>";
         }
 
         echo $response;
