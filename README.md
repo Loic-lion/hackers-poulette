@@ -4,6 +4,8 @@ __Création d'un formulaire de contact avec de l'html, du scss, du javascript et
 * 3 jours de travail (19/06/23 et 21/06/2023 )
 * Réalisé au cours de la formation BeCode
 * Utilisation de xampp et de reCaptcha
+## Requis
+composer install + composer require "swiftmailer/swiftmailer:^6.0"
 ## Fonctionnalités
 * Envoi des informations dans une base de données.
 * Un email automatique est envoyé aux utilisateurs pour confirmer l'envoi des données
