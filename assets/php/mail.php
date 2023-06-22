@@ -13,3 +13,4 @@ $message->setTo($email);
 $message->setBody('Thank you for contacting us! We have received your message.');
 
 $result = $mailer->send($message);
+
