@@ -1,11 +1,16 @@
 <?php
-$to = $email;
-$subject = "Message Received";
-$message = "Thank you for contacting us.\n\nWe have received your message and will get back to you soon.";
-$header = "From: Hakkers Poulette <noreply@hakkerspoulette.com>";
+require('././vendor/autoload.php');
 
-if (mail($to, $subject, $message, $header)) {
-    $response .= "Email confirmation sent.";
-} else {
-    $response .= "Error sending email confirmation.<br>";
-}
+$transport = new Swift_SmtpTransport('smtp-relay.sendinblue.com', 587);
+$transport->setUsername('USER_SPMT');
+$transport->setPassword('SMTP_KEY');
+
+$mailer = new Swift_Mailer($transport);
+
+$message = new Swift_Message('Confirmation Email');
+$message->setFrom('noreply@hakkerspoulette.com');
+$message->setTo($email);
+$message->setBody('Thank you for contacting us! We have received your message.');
+
+$result = $mailer->send($message);
+

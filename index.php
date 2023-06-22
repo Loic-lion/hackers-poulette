@@ -1,6 +1,7 @@
-<!-- Pour utiliser le script, il faut completer les informations de la base de donnée en ligne 44, 
-ainsi que de remplacer KEY_reCAPTCHA par une clé valide à la ligne 111. De plus il faut remplacer 
-KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 -->
+<!-- Pour utiliser le script, il faut completer les informations de la base de donnée en ligne 45, 
+ainsi que de remplacer KEY_reCAPTCHA par une clé valide à la ligne 119. De plus il faut remplacer 
+KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 ainsi que remplacer SMTP_KEY 
+par votre clé SPMT et USER_SPMT par votre id spmt dans le fichier mail.php-->
 
 
 <!DOCTYPE html>
@@ -79,13 +80,19 @@ KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 --
             };
 
             ////////////////////////////////////////////////////////////////
+
             include 'assets/php/mail.php';
+
             ///////////////////////////////////////////////////////////
-            $response = "<div class='response__ok animate'>Thank you for contacting us</div>";
+
+
+
+
+            $response = "<div class='response__ok'>Thank you for contacting us</div>";
 
             $name = $firstname = $file = $email = $description = "";
         } else {
-            $response = "<div class='response__fail animate'>Please fill in all the required fields correctly.</div>";
+            $response = "<div class='response__fail'>Please fill in all the required fields correctly.</div>";
         }
 
         echo $response;
@@ -106,9 +113,11 @@ KEY_SECRET dans le fichier verify.php par une clé secrète valide en ligne 6 --
                 <input type="text" name="firstname" placeholder="First Name (max 255 characters)">
                 <input name="email" placeholder="Email (max 255 characters)">
                 <input type="file" name="file">
+
                 <textarea name="description" rows="5" cols="40" placeholder="Description (max 1000 characters)"></textarea>
                 <span id="error" class="error"></span>
                 <div class="g-recaptcha" data-sitekey="KEY_reCAPTCHA"></div>
+
                 <input class="btn__submit" type="submit" name="submit" value="Submit">
 
             </form>
