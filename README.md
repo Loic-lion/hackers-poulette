@@ -1,6 +1,6 @@
 # Hackers-poulette
 ## Projet solo
-__Création d'un formulaire de contact avec de l'html, du scss, du javascript et du php.__
+__Création d'un formulaire de contact avec de l'html, du scss, du javascript, du sql et du php.__
 * 3 jours de travail (19/06/23 et 21/06/2023 )
 * Réalisé au cours de la formation BeCode
 * Utilisation de xampp et de reCaptcha
